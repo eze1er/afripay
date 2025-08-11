@@ -1,0 +1,89 @@
+.
+├── .env.example
+├── .gitignore
+├── README.md
+├── app
+│   ├── api
+│   │   ├── admin
+│   │   │   ├── transactions
+│   │   │   └── users
+│   │   ├── auth
+│   │   │   ├── login
+│   │   │   ├── logout
+│   │   │   └── register
+│   │   ├── transactions
+│   │   │   ├── topup
+│   │   │   ├── transfer
+│   │   │   └── withdraw
+│   │   └── webhooks
+│   │       ├── mpesa
+│   │       ├── mtn
+│   │       └── orange
+│   ├── components
+│   │   ├── auth
+│   │   │   ├── OTPForm.tsx
+│   │   │   └── PhoneInput.tsx
+│   │   ├── dashboard
+│   │   │   ├── BalanceCard.tsx
+│   │   │   ├── TransactionChart.tsx
+│   │   │   └── TransferForm.tsx
+│   │   ├── providers
+│   │   │   └── AuthProvider.tsx
+│   │   └── ui
+│   │       ├── Footer.tsx
+│   │       └── Navbar.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── lib
+│   │   ├── api.ts
+│   │   ├── auth.ts
+│   │   ├── db.ts
+│   │   └── index.ts
+│   ├── locales
+│   │   ├── [locale]
+│   │   │   ├── (auth)
+│   │   │   ├── admin
+│   │   │   ├── dashboard
+│   │   │   └── layout.tsx
+│   │   ├── en.json
+│   │   └── fr.json
+│   ├── middleware.ts
+│   ├── models
+│   │   ├── Transaction.ts
+│   │   ├── User.ts
+│   │   └── index.ts
+│   ├── page.tsx
+│   ├── styles
+│   │   └── globals.css
+│   └── validations
+│       ├── authSchemas.ts
+│       └── index.ts
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.js
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.js 
+├── postcss.config.mjs
+├── public
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── logos
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── scripts
+│   ├── seed-db.ts
+│   └── simulate-transactions.ts
+├── structure.txt
+├── tailwind.config.js
+├── tsconfig.json
+└── types
+    ├── aliases.d.ts
+    ├── global.d.ts
+    ├── jwt.d.ts
+    └── modules.d.ts
+
+36 directories, 51 files

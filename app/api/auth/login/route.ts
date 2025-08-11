@@ -5,8 +5,8 @@ import {
   // setAuthCookie, 
   verifyPassword 
 } from '@/lib';
-import User from '@/models/User';
-import { loginSchema } from '@/validations';
+import User from 'models/User';
+import { loginSchema } from 'validations';
 
 export const POST = (req: NextRequest) => 
   apiHandler(async (req: NextRequest) => {

@@ -27,10 +27,10 @@
         "./app/lib/*"
       ],
       "@/models/*": [
-        "./app/models/*"
+        "models/*"
       ],
       "@/validations/*": [
-        "./app/validations/*"
+        "validations/*"
       ]
     },
     "typeRoots": [
