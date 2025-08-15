@@ -9,7 +9,7 @@ import {
   FormProvider,
   UseFormReturn,
 } from "react-hook-form";
-import { cn } from "@/lib/utils"; // ou remplace cn() par un simple template string si tu n'as pas cet utilitaire.
+import { cn } from "@/lib/utils"; // Ou supprime cn() et remplace par concat en template string si absent
 
 interface FormProps<TFieldValues extends FieldValues> {
   form: UseFormReturn<TFieldValues>;
@@ -30,29 +30,46 @@ export function FormField<
   return <Controller {...props} />;
 }
 
+// Accepte className + autres props valides sur <div>
 export function FormItem({
   className,
+  children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("space-y-2", className)} {...props} />;
-}
-
-export function FormLabel({
-  className,
-  ...props
-}: React.LabelHTMLAttributes<HTMLLabelElement>) {
   return (
-    <label className={cn("block text-sm font-medium", className)} {...props} />
+    <div className={cn("space-y-2", className)} {...props}>
+      {children}
+    </div>
   );
 }
 
-export function FormControl({
+// Accepte className + autres props valides sur <label>
+export function FormLabel({
   className,
+  children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn(className)} {...props} />;
+}: React.LabelHTMLAttributes<HTMLLabelElement>) {
+  return (
+    <label className={cn("block text-sm font-medium", className)} {...props}>
+      {children}
+    </label>
+  );
 }
 
+// Accepte className + autres props valides sur <div>
+export function FormControl({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn(className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+// Accepte className + autres props valides sur <p>
 export function FormMessage({
   className,
   children,

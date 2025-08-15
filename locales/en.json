@@ -1,0 +1,33 @@
+{
+  "Dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overview of your financial activity",
+    "balance": "Available Balance",
+    "topup": "Top Up",
+    "send": "Send",
+    "history": "History",
+    "transactionTrends": "Transaction Trends",
+    "income": "Income",
+    "expense": "Expense",
+    "bars": "Bars",
+    "areas": "Areas",
+    "transferTitle": "Send Money",
+    "recipient": "Recipient",
+    "searchPlaceholder": "Search contact or enter phone number",
+    "change": "Change",
+    "noContacts": "No contacts found",
+    "recipientRequired": "Please select a recipient",
+    "amount": "Amount",
+    "amountRequired": "Please enter an amount",
+    "minAmount": "Minimum amount is {amount}",
+    "currency": "Currency",
+    "message": "Message",
+    "optional": "Optional",
+    "messagePlaceholder": "Add a message (ex: Loan repayment)",
+    "transferButton": "Make Transfer",
+    "processing": "Processing...",
+    "transferSuccess": "Transfer completed successfully!",
+    "transferError": "Transfer error. Please try again.",
+    "recentTransactions": "Recent Transactions"
+  }
+}

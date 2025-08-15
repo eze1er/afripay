@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
-import { ZodError } from 'zod';
-import connectDB from './db';
-import type { NextRequest } from 'next/server';
+import { NextResponse } from "next/server";
+import { ZodError } from "zod";
+import connectDB from "./db";
+import type { NextRequest } from "next/server";
 
 export type ApiResponse<T> = {
   success: boolean;
@@ -20,18 +20,18 @@ export const apiHandler = async <T>(
     const data = await handler(req, params);
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
-    console.error('API Error:', error);
+    console.error("API Error:", error);
 
     if (error instanceof ZodError) {
       const validationErrors: Record<string, string> = {};
       error.issues.forEach((issue) => {
-        const path = issue.path.join('.');
+        const path = issue.path.join(".");
         validationErrors[path] = issue.message;
       });
       return NextResponse.json(
         {
           success: false,
-          error: 'Validation failed',
+          error: "Validation failed",
           validationErrors,
         },
         { status: 400 }
@@ -39,12 +39,9 @@ export const apiHandler = async <T>(
     }
 
     const status = error.statusCode || 500;
-    const message = error.message || 'Internal Server Error';
+    const message = error.message || "Internal Server Error";
 
-    return NextResponse.json(
-      { success: false, error: message },
-      { status }
-    );
+    return NextResponse.json({ success: false, error: message }, { status });
   }
 };
 
@@ -52,13 +49,13 @@ export const validateRequest = (schema: any) => {
   return async (req: NextRequest) => {
     try {
       let data = {};
-      if (req.method !== 'GET') {
+      if (req.method !== "GET") {
         data = await req.json();
       }
       return schema.parse({
         body: data,
         query: Object.fromEntries(req.nextUrl.searchParams),
-        params: req.nextUrl.pathname.split('/').pop(),
+        params: req.nextUrl.pathname.split("/").pop(),
       });
     } catch (error) {
       throw error;
@@ -102,24 +99,20 @@ export const rateLimiter = (
 };
 
 // Formateur de données pour le frontend
-export const formatCurrency = (amount: number, currency: string = 'XOF'): string => {
-  return new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
+export const formatCurrency = (
+  amount: number,
+  currency: string = "XOF"
+): string => {
+  return new Intl.NumberFormat("fr-FR", {
+    style: "currency",
     currency,
     minimumFractionDigits: 0,
   }).format(amount);
 };
 
 export const sanitizeUser = (user: any) => {
-  const { password, accounts, ...sanitized } = user.toObject ? user.toObject() : user;
+  const { password, accounts, ...sanitized } = user.toObject
+    ? user.toObject()
+    : user;
   return sanitized;
 };
-
-// Exportez toutes les fonctions nécessaires
-// export {
-//   apiHandler,
-//   validateRequest,
-//   rateLimiter,
-//   formatCurrency,
-//   sanitizeUser
-// };

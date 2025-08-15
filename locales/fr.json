@@ -1,0 +1,33 @@
+{
+  "Dashboard": {
+    "title": "Tableau de bord",
+    "subtitle": "Vue d'ensemble de votre activité financière",
+    "balance": "Solde disponible",
+    "topup": "Recharger",
+    "send": "Envoyer",
+    "history": "Historique",
+    "transactionTrends": "Tendances des transactions",
+    "income": "Revenus",
+    "expense": "Dépenses",
+    "bars": "Barres",
+    "areas": "Aires",
+    "transferTitle": "Envoyer de l'argent",
+    "recipient": "Destinataire",
+    "searchPlaceholder": "Rechercher un contact ou saisir un numéro",
+    "change": "Changer",
+    "noContacts": "Aucun contact trouvé",
+    "recipientRequired": "Veuillez sélectionner un destinataire",
+    "amount": "Montant",
+    "amountRequired": "Veuillez saisir un montant",
+    "minAmount": "Le montant minimum est {amount}",
+    "currency": "Devise",
+    "message": "Message",
+    "optional": "Optionnel",
+    "messagePlaceholder": "Ajouter un message (ex: Remboursement prêt)",
+    "transferButton": "Effectuer le transfert",
+    "processing": "Traitement en cours...",
+    "transferSuccess": "Transfert effectué avec succès !",
+    "transferError": "Erreur lors du transfert. Veuillez réessayer.",
+    "recentTransactions": "Transactions récentes"
+  }
+}

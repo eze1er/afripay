@@ -5,6 +5,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card: #f8fafc;
+  --card-foreground: #0f172a;
+  --success: #10B981;
+  --danger: #EF4444;
+  --info: #3B82F6;
+  --primary: #4F46E5;
+  
   --font-geist-sans: 'Geist Sans', sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
 }
@@ -14,16 +21,120 @@
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
   }
+
+  /* Styles de base pour les éléments */
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  /* Styles pour les graphiques Recharts en mode clair */
+  .recharts-tooltip {
+    @apply bg-white border border-gray-200 rounded-lg shadow-lg p-4 !important;
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    @apply fill-gray-600 text-xs;
+  }
+
+  .recharts-legend-item-text {
+    @apply text-gray-700;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --card: #1e1e1e;
+    --card-foreground: #e2e8f0;
+    --success: #059669;
+    --danger: #DC2626;
+    --info: #2563EB;
+    --primary: #6366F1;
+  }
+
+  /* Styles pour le mode sombre */
+  .dark {
+    /* Correction des couleurs pour les graphiques */
+    .recharts-tooltip {
+      @apply bg-gray-900 border-gray-700 !important;
+    }
+
+    .recharts-cartesian-grid line {
+      @apply stroke-gray-800 !important;
+    }
+
+    .recharts-cartesian-axis-tick-value {
+      @apply fill-gray-400 !important;
+    }
+
+    .recharts-legend-item-text {
+      @apply text-gray-300 !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+@layer components {
+  /* Composant Card */
+  .card {
+    @apply bg-card text-card-foreground rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-800;
+  }
+
+  /* Composant Button */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200 inline-flex items-center justify-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-700;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700;
+  }
+
+  /* Composant BalanceCard */
+  .balance-card {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800;
+  }
+
+  /* Animations */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+}
+
+/* Styles utilitaires supplémentaires */
+.skeleton {
+  @apply bg-gray-200 dark:bg-gray-700 rounded-md animate-pulse;
+}
+
+.truncate-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

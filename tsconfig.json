@@ -21,16 +21,22 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./app/*"
+        "./*"
+      ],
+      "@/components/*": [
+        "./app/components/*"
       ],
       "@/lib/*": [
         "./app/lib/*"
       ],
       "@/models/*": [
-        "models/*"
+        "./models/*"
       ],
       "@/validations/*": [
-        "validations/*"
+        "./validations/*"
+      ],
+      "@/styles/*": [
+        "./styles/*"
       ]
     },
     "typeRoots": [

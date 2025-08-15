@@ -6,7 +6,7 @@ import TransactionChart from '@/components/dashboard/TransactionChart';
 import TransferForm from '@/components/dashboard/TransferForm';
 import RecentTransactions from '@/components/dashboard/RecentTransactions'; // Import corrigé
 import { getDashboardData } from '@/lib/api';
-import { User } from '@/models/User';
+import  User  from '@/models/User';
 
 export default async function DashboardPage({
   params: { locale }
@@ -16,7 +16,7 @@ export default async function DashboardPage({
   const t = await getTranslations('Dashboard');
   
   // Récupération de l'utilisateur connecté via les headers
-  const headersList = headers();
+  const headersList = await headers();
   const userData = headersList.get('x-user');
   const currentUser: User = userData ? JSON.parse(userData) : {
     id: 'user-123',
